@@ -365,3 +365,109 @@
     font-size: 1.65rem;
   }
 }
+
+/* Mobile (phones) - match reference image */
+@media (max-width: 480px) {
+  .mainContainer {
+    margin-top: 1.6em !important;
+    width: 100vw;
+    min-width: 100vw;
+    padding: 0 6px;
+  }
+
+  .centerWrapper {
+    width: 94vw;
+    min-height: 620px; /* increase so card can hold both buttons */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  /* remove complex clip-path on small screens and use border-radius to avoid cutting off content */
+  .centerContainer {
+  clip-path: none;
+  width: 92vw;
+  min-height: 560px;
+  padding: 2.5rem 1.25rem 7rem 1.25rem;
+  background: linear-gradient(180deg, rgba(216,209,252,0.95) 6%, #ffffff 62%);
+  border-radius: 34px;
+  border: 2px solid rgba(0,0,0,0.45);
+  transform: translateX(2%) rotate(-4deg);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+  position: relative;
+  overflow: visible;
+  }
+
+  /* hide pseudo element to avoid double background artifacts on small screens */
+  .centerContainer::before {
+    display: none;
+  }
+
+  .textContainer {
+    margin-left: 0;
+    padding: 0.25rem 0.5rem 0;
+  }
+
+  .headLine {
+    font-size: clamp(28px, 7.5vw, 56px);
+    text-align: center;
+    line-height: 1.02;
+    -webkit-text-stroke: 0.12vw #000000;
+  }
+
+  .godText,
+  .wallpaperText {
+    font-size: clamp(30px, 8.5vw, 64px);
+  }
+
+  /* Place buttons centered and stacked inside the card so both are visible */
+  .buttons {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 14%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    width: 72%;
+    align-items: center;
+    margin-left: 0;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 480px;
+    padding: 0.85rem 1rem;
+    border-radius: 10px;
+    font-size: clamp(15px, 4.4vw, 20px);
+    -webkit-text-stroke: 0.08vw #000000;
+  }
+
+  .god,
+  .heaven {
+    font-size: clamp(14px, 4.2vw, 20px);
+  }
+
+  /* Reposition and tilt the character so it sits to the left and overlaps the card like the reference */
+  .characterElement {
+  position: absolute;
+  left: 0.75vw;
+  bottom: -6%;
+  width: 56vw;
+  max-width: 360px;
+  transform: translateX(-6%) rotate(-18deg);
+  z-index: 6;
+  }
+
+  .characterImage {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* small spacing adjustments for footer overlap */
+  .mainContainer + footer,
+  .mainContainer + div.FooterModule {
+    margin-top: 6rem;
+  }
+}
